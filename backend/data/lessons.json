@@ -1,0 +1,110 @@
+[
+  {
+    "id": "l1",
+    "title": "Home Row Keys",
+    "language": "en",
+    "level": "beginner",
+    "category": "fundamentals",
+    "description": "Master the home row keys: A S D F J K L ;",
+    "content": "asdf jkl; asdf jkl; asdfjkl; fjdk slja dkfj asdf jkl; fdsa ;lkj asdf jkl; fads lkj; daf jkl sadflkj; asdfjkl; jklasdf fdsa;lkj"
+  },
+  {
+    "id": "l2",
+    "title": "Top Row Keys",
+    "language": "en",
+    "level": "beginner",
+    "category": "fundamentals",
+    "description": "Practice the top row: Q W E R T Y U I O P",
+    "content": "quit over your type with power quiet tower pour wore riot quite report typist wrote poured tower quiet write poet quite tower your quiet"
+  },
+  {
+    "id": "l3",
+    "title": "Bottom Row Keys",
+    "language": "en",
+    "level": "beginner",
+    "category": "fundamentals",
+    "description": "Practice the bottom row: Z X C V B N M",
+    "content": "zinc vibe calm next zoom back verb nimble zinc calm vibrant nexus zoom back machine calm vibrant zinc next zoom back verb nimble"
+  },
+  {
+    "id": "l4",
+    "title": "Common Words",
+    "language": "en",
+    "level": "beginner",
+    "category": "words",
+    "description": "Type the most common English words",
+    "content": "the and for are but not you all can had her was one our out day get has him his how man new now old see two way who boy did its let put say she too use"
+  },
+  {
+    "id": "l5",
+    "title": "Simple Sentences",
+    "language": "en",
+    "level": "intermediate",
+    "category": "sentences",
+    "description": "Practice typing full sentences with proper punctuation",
+    "content": "The quick brown fox jumps over the lazy dog. She sells sea shells by the seashore. How much wood would a woodchuck chuck if a woodchuck could chuck wood?"
+  },
+  {
+    "id": "l6",
+    "title": "Programming Keywords",
+    "language": "en",
+    "level": "intermediate",
+    "category": "code",
+    "description": "Practice common programming keywords and syntax",
+    "content": "const let var function return if else for while do switch case break continue class extends import export default async await try catch finally throw new this"
+  },
+  {
+    "id": "l7",
+    "title": "Number Row",
+    "language": "en",
+    "level": "intermediate",
+    "category": "fundamentals",
+    "description": "Master numbers and symbols on the top row",
+    "content": "1234 5678 90 1020 3040 5060 7080 9010 1234567890 2468 1357 9876 5432 1098 7654 3210 1234 5678 90"
+  },
+  {
+    "id": "l8",
+    "title": "Speed Builder",
+    "language": "en",
+    "level": "advanced",
+    "category": "speed",
+    "description": "Fast-paced common word combinations to build typing speed",
+    "content": "is it in at be by do go he if me my no of on or so to up us we as an but can the and you are was has had its not for all one had her this have that with they will from your when them were been into than more some well much know just like"
+  },
+  {
+    "id": "l9",
+    "title": "Punctuation Practice",
+    "language": "en",
+    "level": "intermediate",
+    "category": "punctuation",
+    "description": "Master commas, periods, apostrophes, and other punctuation marks",
+    "content": "Don't stop! Can't you see it's perfect? Yes, I know. Wait—that's not right. \"Hello,\" she said. It's a bird; it's a plane! Really? Are you sure, though? Let's go, now."
+  },
+  {
+    "id": "l10",
+    "title": "Paragraph Typing",
+    "language": "en",
+    "level": "advanced",
+    "category": "fluency",
+    "description": "Full paragraph typing for fluency and endurance",
+    "content": "Typing is a skill that improves with consistent daily practice. The best typists don't just type fast—they type accurately and with great rhythm. Focus on hitting every key cleanly before worrying about speed. Speed will come naturally as your muscle memory builds over time. Set a daily goal and stick to it."
+  },
+  {
+    "id": "l11",
+    "title": "Palabras Comunes",
+    "language": "es",
+    "level": "beginner",
+    "category": "words",
+    "description": "Las palabras más comunes en español",
+    "content": "el la los las un una de que se en es son fue hay con por no si más yo te mi tu él su sus nos hay vez cuando donde como todo esta este esta este"
+  },
+  {
+    "id": "l12",
+    "title": "JavaScript Basics",
+    "language": "en",
+    "level": "advanced",
+    "category": "code",
+    "description": "Common JavaScript patterns and syntax",
+    "content": "const fetchData = async (url) => { try { const res = await fetch(url); const data = await res.json(); return data; } catch (err) { console.error(err); } };"
+  }
+]

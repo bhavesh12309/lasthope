@@ -1,0 +1,42 @@
+[
+  {
+    "id": "user_1773915741501",
+    "name": "Test User",
+    "email": "test@example.com",
+    "password": "$2a$10$YgA9OYxUVtPtybhmbK1vd.yw1128VelUfq0zUjlbO/Wxqex6z2tKe",
+    "createdAt": "2026-03-19T10:22:21.501Z",
+    "stats": {
+      "totalWords": 0,
+      "totalTime": 0,
+      "bestWpm": 0,
+      "averageWpm": 0,
+      "totalAccuracy": 0,
+      "level": 1,
+      "xp": 0,
+      "achievements": [],
+      "dailyGoal": 100,
+      "dailyProgress": 0,
+      "lastSessionDate": "Thu Mar 19 2026"
+    }
+  },
+  {
+    "id": "user_1773916632068",
+    "name": "MB ",
+    "email": "bhavsarbhavesh282@gmail.com",
+    "password": "$2a$10$UHFgZx/Iyuu2K0wuS09RHeIHj7qIteJePmo8CXV03LmoXS7A/7NAW",
+    "createdAt": "2026-03-19T10:37:12.068Z",
+    "stats": {
+      "totalWords": 0,
+      "totalTime": 0,
+      "bestWpm": 0,
+      "averageWpm": 0,
+      "totalAccuracy": 0,
+      "level": 1,
+      "xp": 0,
+      "achievements": [],
+      "dailyGoal": 100,
+      "dailyProgress": 0,
+      "lastSessionDate": "Thu Mar 19 2026"
+    }
+  }
+]
