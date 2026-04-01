@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { ThemeProvider } from "./contexts/ThemeContext";
 import { UserProvider, useUser } from "./contexts/UserContext";
 import { SettingsProvider } from "./contexts/SettingsContext";
+import { Analytics } from "@vercel/analytics/react";
 
 import Navigation from "./components/Navigation";
 import Homepage from "./components/Homepage";
@@ -21,8 +22,6 @@ import CertificateGenerator from "./components/CertificateGenerator";
 import AvatarBuilder from "./components/AvatarBuilder";
 import Login from "./components/Login";
 import Signup from "./components/Signup";
-
-
 
 // Typing mode components
 import EndlessMode from "./components/EndlessMode";
@@ -52,7 +51,6 @@ function App() {
               <Navigation />
 
               <Routes>
-                {/* Main Pages */}
                 <Route path="/" element={<Homepage />} />
                 <Route path="/login" element={<Login />} />
                 <Route path="/signup" element={<Signup />} />
@@ -73,11 +71,12 @@ function App() {
                 <Route path="/typing/word-count" element={<WordCountMode />} />
                 <Route path="/typing/endless" element={<EndlessMode />} />
 
-                {/* Main Typing Interface */}
+                {/* Main Typing */}
                 <Route path="/typing" element={<TypingInterface />} />
               </Routes>
 
               <Footer />
+              <Analytics />
             </div>
           </Router>
         </SettingsProvider>
