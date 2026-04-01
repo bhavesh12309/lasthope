@@ -23,6 +23,7 @@ import Login from "./components/Login";
 import Signup from "./components/Signup";
 
 
+
 // Typing mode components
 import EndlessMode from "./components/EndlessMode";
 import WordCountMode from "./components/WordCountMode";
