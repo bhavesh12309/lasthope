@@ -1,61 +1,25 @@
 import React, { useState, useEffect } from 'react';
-import { Github, Mail, Heart, Keyboard, Trophy, Users, Star, ArrowUp, Twitter, Linkedin, Instagram } from 'lucide-react';
+import { Github, Mail, Heart, Keyboard, Trophy, Users, Star, ArrowUp } from 'lucide-react';
 
 const Footer = () => {
   const [showScrollTop, setShowScrollTop] = useState(false);
   const [heartBeat, setHeartBeat] = useState(false);
-  const [stats, setStats] = useState({
-    users: 12543,
-    lessons: 1247,
-    achievements: 8932
-  });
 
   useEffect(() => {
-    // Animate heart beat
     const heartInterval = setInterval(() => {
       setHeartBeat(true);
       setTimeout(() => setHeartBeat(false), 300);
     }, 3000);
 
-    // Check scroll position for scroll-to-top button
     const handleScroll = () => {
       setShowScrollTop(window.scrollY > 400);
     };
 
     window.addEventListener('scroll', handleScroll);
 
-    // Animate stats on mount
-    const animateStats = () => {
-      const targets = { users: 12543, lessons: 1247, achievements: 8932 };
-      const duration = 2000;
-      const steps = 60;
-      const stepTime = duration / steps;
-
-      Object.keys(targets).forEach(key => {
-        let currentValue = 0;
-        const targetValue = targets[key];
-        const increment = targetValue / steps;
-
-        const timer = setInterval(() => {
-          currentValue += increment;
-          if (currentValue >= targetValue) {
-            currentValue = targetValue;
-            clearInterval(timer);
-          }
-          setStats(prev => ({
-            ...prev,
-            [key]: Math.floor(currentValue)
-          }));
-        }, stepTime);
-      });
-    };
-
-    const timeout = setTimeout(animateStats, 500);
-
     return () => {
       clearInterval(heartInterval);
       window.removeEventListener('scroll', handleScroll);
-      clearTimeout(timeout);
     };
   }, []);
 
@@ -67,11 +31,8 @@ const Footer = () => {
   };
 
   const socialLinks = [
-    { icon: Github, href: "#", label: "GitHub", color: "hover:text-gray-300" },
-    { icon: Twitter, href: "#", label: "Twitter", color: "hover:text-blue-400" },
-    { icon: Linkedin, href: "#", label: "LinkedIn", color: "hover:text-blue-500" },
-    { icon: Instagram, href: "#", label: "Instagram", color: "hover:text-pink-400" },
-    { icon: Mail, href: "#", label: "Email", color: "hover:text-green-400" }
+    { icon: Github, href: "https://github.com/bhavesh12309", label: "GitHub", color: "hover:text-gray-300" },
+    { icon: Mail, href: "mailto:typing123316", label: "Email", color: "hover:text-green-400" }
   ];
 
   const quickLinks = [
@@ -104,33 +65,6 @@ const Footer = () => {
         </div>
 
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-          {/* Stats Section */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
-            <div className="text-center group">
-              <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-r from-blue-500 to-purple-600 rounded-2xl mb-4 group-hover:scale-110 transition-transform duration-300">
-                <Users className="w-8 h-8 text-white" />
-              </div>
-              <div className="text-3xl font-bold text-white mb-2">{stats.users.toLocaleString()}+</div>
-              <div className="text-gray-400">Active Typists</div>
-            </div>
-            
-            <div className="text-center group">
-              <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-r from-green-500 to-teal-600 rounded-2xl mb-4 group-hover:scale-110 transition-transform duration-300">
-                <Keyboard className="w-8 h-8 text-white" />
-              </div>
-              <div className="text-3xl font-bold text-white mb-2">{stats.lessons.toLocaleString()}+</div>
-              <div className="text-gray-400">Practice Lessons</div>
-            </div>
-            
-            <div className="text-center group">
-              <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-r from-yellow-500 to-orange-600 rounded-2xl mb-4 group-hover:scale-110 transition-transform duration-300">
-                <Trophy className="w-8 h-8 text-white" />
-              </div>
-              <div className="text-3xl font-bold text-white mb-2">{stats.achievements.toLocaleString()}+</div>
-              <div className="text-gray-400">Achievements Unlocked</div>
-            </div>
-          </div>
-
           {/* Main Footer Content */}
           <div className="grid md:grid-cols-4 gap-12 mb-12">
             {/* Brand Section */}
@@ -146,12 +80,12 @@ const Footer = () => {
                   <div className="text-sm text-gray-400">Pro Typing Platform</div>
                 </div>
               </div>
-              
+
               <p className="text-gray-300 text-lg leading-relaxed max-w-md">
-                Master your typing skills with our interactive, gamified learning platform. 
+                Master your typing skills with our interactive, gamified learning platform.
                 Join thousands of users improving their speed and accuracy daily.
               </p>
-              
+
               <div className="space-y-4">
                 <div className="text-sm font-semibold text-gray-400 uppercase tracking-wider">Connect With Us</div>
                 <div className="flex space-x-4">
@@ -159,6 +93,8 @@ const Footer = () => {
                     <a
                       key={index}
                       href={social.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
                       className={`group flex items-center justify-center w-12 h-12 bg-gray-800/50 rounded-xl border border-gray-700/50 text-gray-400 ${social.color} transition-all duration-300 hover:border-gray-600 hover:bg-gray-700/50 hover:scale-110`}
                       aria-label={social.label}
                     >
@@ -183,7 +119,7 @@ const Footer = () => {
                 </div>
               </div>
             </div>
-            
+
             {/* Quick Links */}
             <div className="space-y-6">
               <h3 className="text-xl font-bold text-white relative">
@@ -193,8 +129,8 @@ const Footer = () => {
               <ul className="space-y-3">
                 {quickLinks.map((link, index) => (
                   <li key={index}>
-                    <a 
-                      href={link.href} 
+                    <a
+                      href={link.href}
                       className="text-gray-400 hover:text-white hover:translate-x-2 transition-all duration-300 flex items-center group"
                     >
                       <div className="w-1.5 h-1.5 bg-gray-600 rounded-full mr-3 group-hover:bg-blue-500 transition-colors duration-300"></div>
@@ -204,7 +140,7 @@ const Footer = () => {
                 ))}
               </ul>
             </div>
-            
+
             {/* Features */}
             <div className="space-y-6">
               <h3 className="text-xl font-bold text-white relative">
@@ -214,8 +150,8 @@ const Footer = () => {
               <ul className="space-y-3">
                 {features.map((feature, index) => (
                   <li key={index}>
-                    <a 
-                      href={feature.href} 
+                    <a
+                      href={feature.href}
                       className="text-gray-400 hover:text-white group transition-all duration-300"
                     >
                       <div className="flex items-start space-x-3">
@@ -233,7 +169,7 @@ const Footer = () => {
               </ul>
             </div>
           </div>
-          
+
           {/* Bottom Section */}
           <div className="border-t border-gray-800/50 pt-8">
             <div className="flex flex-col md:flex-row items-center justify-between space-y-4 md:space-y-0">
@@ -245,7 +181,7 @@ const Footer = () => {
                   <span>for typing enthusiasts</span>
                 </div>
               </div>
-              
+
               <div className="flex items-center space-x-4">
                 <div className="flex items-center space-x-1 text-yellow-500">
                   {[...Array(5)].map((_, i) => (
