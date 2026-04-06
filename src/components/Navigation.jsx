@@ -18,7 +18,7 @@ const Navigation = () => {
     { path: '/', icon: Home, label: 'Home' },
     { path: '/typing', icon: Keyboard, label: 'Practice' },
     { path: '/dashboard', icon: BarChart3, label: 'Dashboard' },
-    { path: '/achievements', icon: Trophy, label: 'Achievements' },
+    { path: '/achievements', icon: Trophy, label: 'story' },
     { path: '/leaderboard', icon: Crown, label: 'Leaderboard' },
     { path: '/settings', icon: Settings, label: 'Settings' },
   ];
