@@ -1318,6 +1318,7 @@ const TypingInterface = () => {
   const [mistakes, setMistakes] = useState(0);
   const [completedLessons, setCompletedLessons] = useState(new Set());
   const [startTime, setStartTime] = useState(null);
+  const completionFiredRef = useRef(false);
   const [fontSize, setFontSize] = useState('xxlarge');
   const [soundType, setSoundType] = useState('click');
   
@@ -1344,34 +1345,38 @@ const TypingInterface = () => {
 
     const newAccuracy = Math.round((correctChars / userInput.length) * 100);
     setAccuracy(newAccuracy);
-    setMistakes(userInput.length - correctChars);
+    const newMistakes = userInput.length - correctChars;
+    setMistakes(newMistakes);
 
     const newProgress = Math.min((userInput.length / lessonText.length) * 100, 100);
     setProgress(newProgress);
 
+    let newWpm = 0;
     if (timeElapsed > 0) {
       const wordsTyped = userInput.length / 5;
       const minutesElapsed = timeElapsed / 60;
-      const newWpm = Math.round(wordsTyped / minutesElapsed);
+      newWpm = Math.round(wordsTyped / minutesElapsed);
       setWpm(newWpm);
     }
 
-    if (userInput === lessonText && currentLesson && !completedLessons.has(currentLesson.id)) {
-      completeLesson();
+    // Use ref guard so completeLesson fires exactly once per lesson attempt
+    if (userInput === lessonText && currentLesson && !completionFiredRef.current) {
+      completionFiredRef.current = true;
+      completeLesson(newWpm, newAccuracy, newMistakes);
     }
-  }, [userInput, timeElapsed, lessonText, currentLesson, completedLessons]);
+  }, [userInput, timeElapsed, lessonText, currentLesson]);
 
-  const completeLesson = () => {
+  const completeLesson = (finalWpm, finalAccuracy, finalMistakes) => {
     if (!currentLesson) return;
 
     const sessionData = {
-      lessonId:      currentLesson.id,
-      wpm:           wpm,
-      accuracy:      accuracy,
-      duration:      timeElapsed,
-      mistakes:      mistakes,
-      wordsTyped:    Math.round(userInput.length / 5),
-      lessonType:    currentLesson.difficulty || '',
+      lessonId:        currentLesson.id,
+      wpm:             finalWpm,
+      accuracy:        finalAccuracy,
+      duration:        timeElapsed,
+      mistakes:        finalMistakes,
+      wordsTyped:      Math.round(userInput.length / 5),
+      lessonType:      currentLesson.difficulty || '',
       charactersTyped: userInput.length,
     };
 
@@ -1384,12 +1389,12 @@ const TypingInterface = () => {
     setCompletedLessons(prev => new Set([...prev, currentLesson.id]));
     
     setCompletionStats({
-      title: currentLesson.title,
-      wpm: wpm,
-      accuracy: accuracy,
+      title:       currentLesson.title,
+      wpm:         finalWpm,
+      accuracy:    finalAccuracy,
       timeElapsed: timeElapsed,
-      mistakes: mistakes,
-      wpmTarget: currentLesson.wpmTarget
+      mistakes:    finalMistakes,
+      wpmTarget:   currentLesson.wpmTarget
     });
     
     setIsPlaying(false);
@@ -1418,6 +1423,7 @@ const TypingInterface = () => {
   };
 
   const resetStats = () => {
+    completionFiredRef.current = false;
     setUserInput("");
     setTimeElapsed(0);
     setAccuracy(100);
